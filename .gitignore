@@ -130,3 +130,9 @@ dmypy.json
 
 # Generated images
 img/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/
