@@ -1,4 +1,4 @@
-import pandas as pd
+import os
 import textwrap
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -41,9 +41,11 @@ def generate_img(df,
     img = Image.new('RGBA', (width, 10000), background_color)
     draw = ImageDraw.Draw(img)
 
-    h1_font = ImageFont.truetype('fonts/OpenSans-Bold.ttf', 36)
-    h2_font = ImageFont.truetype('fonts/OpenSans-Bold.ttf', 16)
-    h3_font = ImageFont.truetype('fonts/OpenSans-Medium.ttf', 16)
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    h1_font = ImageFont.truetype(os.path.join(dir_path, 'fonts/OpenSans-Bold.ttf'), 36)
+    h2_font = ImageFont.truetype(os.path.join(dir_path, 'fonts/OpenSans-Bold.ttf'), 16)
+    h3_font = ImageFont.truetype(os.path.join(dir_path, 'fonts/OpenSans-Medium.ttf'), 16)
 
     draw.text((10, 10), header_title, font_color, font=h1_font)
     y += 40 + padding + 10
